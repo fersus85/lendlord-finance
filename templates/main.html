@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    main
+{% endblock %}
+
+{% block main %}
+    <h1> Панель управления </h1>
+
+<div class="month">
+  <ul>
+    <li class="prev">❮</li>
+    <li class="next">❯</li>
+    <li>
+      {{ month }}<br>
+      <span style="font-size:18px">{{ year }}</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>ПНД</li>
+  <li>ВТР</li>
+  <li>СРД</li>
+  <li>ЧТВ</li>
+  <li>ПТН</li>
+  <li>СБТ</li>
+  <li>ВСК</li>
+</ul>
+
+<ul class="days">
+  {% for d in days %}
+  {% if d == day %}
+  <li><span class="active">{{ d }}</span></li>
+  {% else %}
+  <li>{{ d }}</li>
+  {% endif%}
+  {% endfor %}
+</ul>
+
+    <form action="/main" method="post">
+        <div class="mb-3">
+            <input autocomplete="off"  class="form-control mx-auto w-auto"  name="expense" placeholder="расход" type="number">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Внести</button>
+    </form>
+
+{% endblock %}
