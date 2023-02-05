@@ -9,8 +9,6 @@
 
 <div class="month">
   <ul>
-    <li class="prev">❮</li>
-    <li class="next">❯</li>
     <li>
       {{ month }}<br>
       <span style="font-size:18px">{{ year }}</span>
@@ -29,16 +27,33 @@
 </ul>
 
 <ul class="days">
-  {% for d in days %}
-  {% if d == day %}
-  <li><span class="active">{{ d }}</span></li>
-  {% else %}
-  <li>{{ d }}</li>
-  {% endif%}
-  {% endfor %}
+    {% if first_day_month == 'Wednesday' %}
+    <li class="no"> </li>
+    <li class="no"> </li>
+        {% for d in days %}
+        {% if d == day %}
+            <li>
+                <form action="POST">
+                <span class="active">{{ d }}  <input size="4"  autocomplete="on"> </span>
+                <input type="checkbox" name="agree" onclick="agreeForm(this.form)" >
+                <button type="submit" name="submit" disabled>ok</button>
+                </form>
+            </li>
+        {% else %}
+        <li>{{ d }} <input size="4" autocomplete="on">
+            <button type="submit">ok</button>
+        </li>
+        {% endif%}
+        {% endfor %}
+    {% endif %}
+    <li class="no"> </li>
+    <li class="no"> </li>
+    <li class="no"> </li>
+    <li class="no"> </li>
+    <li class="no"> </li>
 </ul>
 
-    <form action="/main" method="post">
+    <form action="/main" method="post" class="exp">
         <div class="mb-3">
             <input autocomplete="off"  class="form-control mx-auto w-auto"  name="expense" placeholder="расход" type="number">
         </div>

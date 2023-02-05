@@ -68,107 +68,17 @@ body {
   line-height: 1.5;
   font-family: sans-serif;
   background: #28283b;
-  color: #444;
+  color: #FFFFFF;
 }
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: baseline;
-}
-a {
-  text-decoration: none;
-}
-.calendar-wrapper {
-  width: 360px;
-  margin: 3em auto;
-  padding: 2em;
-  border: 1px solid #dcdcff;
-  border-radius: 5px;
-  background: #fff;
-}
-table {
-  clear: both;
-  width: 100%;
-  border: 1px solid #dcdcff;
-  border-radius: 3px;
-  border-collapse: collapse;
-  color: #444;
-}
-td {
-  height: 48px;
-  text-align: center;
-  vertical-align: middle;
-  border-right: 1px solid #dcdcff;
-  border-top: 1px solid #dcdcff;
-  width: 14.28571429%;
-}
-td.not-current {
-  color: #c0c0c0;
-}
-td.today {
-  font-weight: 700;
-  color: #28283b;
-  font-size: 1.5em;
-}
-thead td {
-  border: none;
-  color: #28283b;
-  text-transform: uppercase;
-  font-size: 1.5em;
-}
-#btnPrev {
-  float: left;
-  margin-bottom: 20px;
-}
-#btnPrev:before {
-  content: '\f104';
-  font-family: FontAwesome;
-  padding-right: 4px;
-}
-#btnNext {
-  float: right;
-  margin-bottom: 20px;
-}
-#btnNext:after {
-  content: '\f105';
-  font-family: FontAwesome;
-  padding-left: 4px;
-}
-#btnPrev,
-#btnNext {
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1em;
-  color: #c0c0c0;
-  cursor: pointer;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-#btnPrev:hover,
-#btnNext:hover {
-  color: #28283b;
-  font-weight: bold;
-}
+
 * {box-sizing: border-box;}
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
 .month {
-    padding: 70px 25px;
+    padding: 25px 25px;
     width: 100%;
-    background: #1abc9c;
+    background: #3FC1C9;
     text-align: center;
 }
 
@@ -184,20 +94,11 @@ body {font-family: Verdana, sans-serif;}
     letter-spacing: 3px;
 }
 
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
 .weekdays {
     margin: 0;
     padding: 10px 0;
     background-color: #ddd;
+
 }
 
 .weekdays li {
@@ -208,7 +109,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .days {
-    padding: 10px 0;
+    padding: 20px 0;
     background: #eee;
     margin: 0;
 }
@@ -218,17 +119,24 @@ body {font-family: Verdana, sans-serif;}
     display: inline-block;
     width: 13.6%;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size:12px;
     color: #777;
+    border: solid;
+    padding: 5px;
 }
 
 .days li .active {
     padding: 5px;
-    background: #1abc9c;
+    background: #FC5185;
     color: white !important
 }
-
+.days li.no {
+    border: none;
+}
+.exp{
+    margin-top: 40px;
+}
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}

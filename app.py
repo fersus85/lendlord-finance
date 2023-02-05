@@ -40,13 +40,23 @@ def index():
 @app.route('/main')
 @login_required
 def main():
+    curr_year = int(datetime.date.today().strftime("%Y"))
+    curr_month = int(datetime.date.today().strftime("%m"))
+    first_day_month = datetime.date(curr_year, curr_month, 1).strftime('%A')
     cur_user = current_user.__dict__
     month = datetime.date.today().strftime('%B')
     year = datetime.date.today().strftime('%Y')
     day = int(datetime.date.today().strftime('%d'))
-    days = [i for i in range(1, 32)]
+    all_months = {'January': 31, 'February': 28, 'March': 31, 'April': 30, 'May': 31, 'June': 30, 'July': 31,
+                  'August': 31, 'September': 30, 'October': 31, 'November': 30, 'December': 31}
+    if month in ['January', 'March', 'May', 'July', 'August', 'October', 'December']:
+        days = [i for i in range(1, 32)]
+    elif month == 'February':
+        days = [i for i in range(1, 29)]
+    else:
+        days = [i for i in range(1, 31)]
 
-    return render_template('main.html', cur_user=cur_user, month=month, year=year, day=day, days=days)
+    return render_template('main.html', cur_user=cur_user, month=month, year=year, day=day, days=days, first_day_month=first_day_month)
 
 
 @app.route("/login", methods=["GET", "POST"])
